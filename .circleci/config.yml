@@ -33,14 +33,14 @@ jobs:
             . /home/circleci/venv/bin/activate
             cd ..
             mv project passive_data_kit_external_sensors
+            git clone https://github.com/audacious-software/PassiveDataKit-Django.git passive_data_kit
+            pip install -r passive_data_kit_external_sensors/requirements.txt --progress-bar off
             mkdir django
             cd django
             django-admin.py startproject pdk
             mv ../passive_data_kit_external_sensors pdk
             cd pdk
-            git clone https://github.com/audacious-software/PassiveDataKit-Django.git passive_data_kit
             cp passive_data_kit_external_sensors/circle_settings.py pdk/settings.py
-            pip install -r passive_data_kit_external_sensors/requirements.txt --progress-bar off
             python manage.py migrate
             python manage.py test
             cp passive_data_kit_external_sensors/.pylintrc .
@@ -80,14 +80,14 @@ jobs:
             . /home/circleci/venv/bin/activate
             cd ..
             mv project passive_data_kit_external_sensors
+            git clone https://github.com/audacious-software/PassiveDataKit-Django.git passive_data_kit
+            pip install -r passive_data_kit_external_sensors/requirements.txt --progress-bar off
             mkdir django
             cd django
             django-admin.py startproject pdk
             mv ../passive_data_kit_external_sensors pdk
             cd pdk
-            git clone https://github.com/audacious-software/PassiveDataKit-Django.git passive_data_kit
             cp passive_data_kit_external_sensors/circle_settings.py pdk/settings.py
-            pip install -r passive_data_kit_external_sensors/requirements.txt --progress-bar off
             python manage.py migrate
             python manage.py test
             cp passive_data_kit_external_sensors/.pylintrc .
