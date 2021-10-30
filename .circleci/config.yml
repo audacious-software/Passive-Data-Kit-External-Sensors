@@ -32,16 +32,18 @@ jobs:
             python3 -m venv --copies /home/circleci/venv
             . /home/circleci/venv/bin/activate
             git clone https://github.com/audacious-software/PassiveDataKit-Django.git passive_data_kit
+            pip install --upgrade pip
+            pip install wheel
             pip install -r requirements.txt --progress-bar off
             cd ..
             mv project passive_data_kit_external_sensors
             mkdir django
             cd django
-            django-admin.py startproject pdk
+            django-admin startproject pdk
             mv ../passive_data_kit_external_sensors pdk
             cd pdk
             cp passive_data_kit_external_sensors/circle_settings.py pdk/settings.py
-            cp passive_data_kit_external_sensors/passive_data_kit passive_data_kit
+            mv passive_data_kit_external_sensors/passive_data_kit passive_data_kit
             python manage.py migrate
             python manage.py test
             cp passive_data_kit_external_sensors/.pylintrc .
@@ -80,16 +82,18 @@ jobs:
             virtualenv --copies /home/circleci/venv
             . /home/circleci/venv/bin/activate
             git clone https://github.com/audacious-software/PassiveDataKit-Django.git passive_data_kit
+            pip install --upgrade pip
+            pip install wheel
             pip install -r requirements.txt --progress-bar off
             cd ..
             mv project passive_data_kit_external_sensors
             mkdir django
             cd django
-            django-admin.py startproject pdk
+            django-admin startproject pdk
             mv ../passive_data_kit_external_sensors pdk
             cd pdk
             cp passive_data_kit_external_sensors/circle_settings.py pdk/settings.py
-            cp passive_data_kit_external_sensors/passive_data_kit passive_data_kit
+            mv passive_data_kit_external_sensors/passive_data_kit passive_data_kit
             python manage.py migrate
             python manage.py test
             cp passive_data_kit_external_sensors/.pylintrc .
