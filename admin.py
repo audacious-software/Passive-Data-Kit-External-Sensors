@@ -42,7 +42,7 @@ class SensorMeasurementTypeAdmin(admin.OSMGeoAdmin):
 class SensorModelAdmin(admin.OSMGeoAdmin):
     list_display = ('name', 'identifier', 'manufacturer', 'version', 'released', 'retired')
     list_filter = ('released', 'retired', 'manufacturer',)
-    search_fields = ['name', 'identifier', 'manufacturer' 'description']
+    search_fields = ['name', 'identifier', 'manufacturer', 'description']
 
 
 @admin.register(Sensor)
