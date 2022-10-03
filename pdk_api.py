@@ -24,7 +24,7 @@ def fetch_sensors():
             else:
                 valid_region = valid_region.union(region.bounds)
 
-        response = requests.get(settings.PDK_EXTERNAL_SENSORS_PURPLE_AIR_URL)
+        response = requests.get(settings.PDK_EXTERNAL_SENSORS_PURPLE_AIR_URL, timeout=300)
 
         if response.status_code == 200:
             sensors = response.json()['results']
