@@ -105,7 +105,6 @@ def ingest_sensor_data(sensor_data):
             last_payload = sensor.data_payloads.filter(observed__gte=payload_when).first()
 
             if last_payload is None:
-                print('ADDING PAYLOAD...')
                 data_payload = SensorDataPayload(sensor=sensor, observed=payload_when, location=last_location)
                 data_payload.definition = sensor_data
                 data_payload.save()
