@@ -3,10 +3,17 @@
 
 from __future__ import unicode_literals
 
+import sys
+
 from six import python_2_unicode_compatible
 
 from django.contrib.gis.db import models
-from django.contrib.postgres.fields import JSONField
+
+if sys.version_info[0] > 2:
+    from django.db.models import JSONField # pylint: disable=no-name-in-module
+else:
+    from django.contrib.postgres.fields import JSONField
+
 
 @python_2_unicode_compatible
 class SensorRegion(models.Model):
